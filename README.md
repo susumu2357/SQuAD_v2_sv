@@ -9,24 +9,27 @@
 
 ## What is SQuAD_v2_sv?
 **SQuAD_v2_sv** is a Swedish version of SQuAD2.0. Translation was done automatically using the Google Translate API but it is not so straightforward for the following reasons.
-1. The span that determines the start and end of the answer in the context may change after translation,
+1. The span that determines the start and end of the answer in the context may change after translation.
 2. If the context and the answer are translated independently, the translated answer may not be included in the translated context.
 
 To overcome these difficulties, we used following strategy.
 1. Before the translation, insert the special marker around the answer in the context. For instance, if we have the context like this;
 ```
-Diatomic oxygen gas constitutes 20.8% of the Earth's atmosphere. However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning.
+Diatomic oxygen gas constitutes 20.8% of the Earth's atmosphere. 
+However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning.
 ```
 And, if the question is *Which gas makes up 20.8% of the Earth's atmosphere?* and the answer is *Diatomic oxygen*,
 we insert the special marker *[0]* around the answer, that yields
 ```
-[0] Diatomic oxygen [0] gas constitutes 20.8% of the Earth's atmosphere. However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning.
+[0] Diatomic oxygen [0] gas constitutes 20.8% of the Earth's atmosphere. 
+However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning.
 ```
 Note that, the special marker is not limited to *[0]*, but we can use others.
 
 2. Translate the marked context. The result will be like this;
 ```
-[0] Diatomiskt syre [0] gas utgör 20,8% av jordens atmosfär. Övervakning av syrehalten i atmosfären visar dock en global nedåtgående trend på grund av förbränning av fossila bränslen.
+[0] Diatomiskt syre [0] gas utgör 20,8% av jordens atmosfär. 
+Övervakning av syrehalten i atmosfären visar dock en global nedåtgående trend på grund av förbränning av fossila bränslen.
 ```
 
 3. Extract the marked sentence from the translated context. It will be the translated answer. The start and end of the marked sentence will be the span of the answer.
