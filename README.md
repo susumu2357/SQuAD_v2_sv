@@ -75,7 +75,7 @@ Our model which has about 110M parameters achieves better scores than the KB Lab
 ### Evaluation on Nobel Prize dataset
 
 We have internally created the Nobel Prize dataset for evaluation purposes. This dataset contains descriptions of recent Nobel Prize in physics as contexts and manually created question-answer pairs. The dataset contains 91 question-answer pairs, so the size is small but valuable for evaluation. 
-Since this dataset was not used for fine-tuning, this result is realistic if we use the fine-tuned model without further training.
+Since this dataset is created independently and the model has not seen this dataset before, this result is realistic if we use the fine-tuned model without further training.
 
 The results of evaluation are summarized in the below table.
 Our model achieved better results in both exact match and F1 score.
