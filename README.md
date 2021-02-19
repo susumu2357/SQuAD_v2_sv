@@ -9,11 +9,11 @@
 
 ## What is SQuAD_v2_sv?
 **SQuAD_v2_sv** is a Swedish version of SQuAD2.0. Translation was done automatically using the Google Translate API but it is not so straightforward for the following reasons.
-1. The span that determines the start and end of the answer in the context may change after translation.
-2. If the context and the answer are translated independently, the translated answer may not be included in the translated context.
+- The span that determines the start and end of the answer in the context may change after translation.
+- If the context and the answer are translated independently, the translated answer may not be included in the translated context.
 
 To overcome these difficulties, we used following strategy.
-1. Before the translation, insert the special marker around the answer in the context. For instance, if we have the context like this;
+1. Before the translation, insert the special marker around the answer in the context. For example, if we have the context like this;
 ```
 Diatomic oxygen gas constitutes 20.8% of the Earth's atmosphere. However, monitoring of atmospheric oxygen levels show a global downward trend, because of fossil-fuel burning.
 ```
@@ -35,8 +35,8 @@ This strategy is not perfect. Some context-answer pairs were not translated prop
 
 ## Contents
 
-- *squad_train_v2_sv.json* contains training dataset translated from the original SQuAD v2 train dataset.
-- *squad_dev_v2_sv.json* contains dev dataset translated from the original SQuAD v2 dev dataset.
+- *squad_train_v2_sv.json* contains training dataset translated from the original SQuAD2.0 train dataset.
+- *squad_dev_v2_sv.json* contains dev dataset translated from the original SQuAD2.0 dev dataset.
 
 ## HuggingFace Datasets
 You can access SQuAD_v2_sv using the HuggingFace Datasets.
@@ -74,7 +74,7 @@ Our model which has about 110M parameters achieves better scores than the KB Lab
 
 ### Evaluation on Nobel Prize dataset
 
-We have internally created the Nobel Prize dataset for evaluation purposes. This dataset contains descriptions of recent Nobel Prize as contexts, manually created questions, and manually extracted answers. The dataset contains 91 question and answer pairs, so the size is small but valuable for evaluation. 
+We have internally created the Nobel Prize dataset for evaluation purposes. This dataset contains descriptions of recent Nobel Prize in physics as contexts and manually created question-answer pairs. The dataset contains 91 question-answer pairs, so the size is small but valuable for evaluation. 
 Since this dataset was not used for fine-tuning, this result is realistic if we use the fine-tuned model without further training.
 
 The results of evaluation are summarized in the below table.
