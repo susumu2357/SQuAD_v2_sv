@@ -12,7 +12,7 @@
 1. the span which determines the start and the end of the answer in the context may vary after translation,
 2. tne translated context may not contain the translated answer if we translate both independently.
 
-Details about how we deal these will be described in a separate blog post.
+More details on how to handle these will be provided in another blog post.
 
 ## Contents
 
@@ -20,7 +20,7 @@ Details about how we deal these will be described in a separate blog post.
 - *squad_dev_v2_sv.json* contains dev dataset translated from the original SQuAD v2 dev dataset.
 
 ## HuggingFace Datasets
-You can also access SQuAD_v2_sv through the HuggingFace platform. 
+You can also access SQuAD_v2_sv from the HuggingFace platform. 
 
 ## The fine-tuned model on this dataset
 We fine-tuned [Swedish BERT](https://github.com/Kungbib/swedish-bert-models) pre-trained by the National Library of Sweden. The model is availabel in [HuggingFace model hub]().
